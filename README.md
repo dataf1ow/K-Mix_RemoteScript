@@ -5,6 +5,6 @@ This script will work (for now) with the out of the box MIDI settings for the K-
 
 Feel free to reach out: evanbeta@keithmcmillen.com
 
-Version Notes: 
+# Version Notes: 
 
 b0.1: Added control over the first 8 channels, and the master fader. 
