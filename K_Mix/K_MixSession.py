@@ -5,6 +5,7 @@ from MIDI import *
 class K_MixSession(SessionComponent, K_MixUtility):
 	def __init__(self, num_tracks, num_scenes):
 		SessionComponent.__init__(self, num_tracks, num_scenes)
+		self.sends = ROTARIES[1:]
 		self.setup()
 
 	def setup(self):
