@@ -22,7 +22,7 @@ class K_Mix(ControlSurface):
 		self.mixer = K_MixMixer(8)
 
 	def setup_session(self):
-		self.session = K_MixSession(8, 1)
+		self.session = K_MixSession(8, 6)
 		self.session.set_offsets(0,0)
 		self.session.set_mixer(self.mixer)
 		self.session.update()
