@@ -12,3 +12,5 @@ b0.1: Added control over the first 8 channels, and the master fader. 3/16
 b0.1.1: Added a sesison view and navigation to give access to all tracks. Added track select buttons. Added Panning, and Send conttrol for the selected track. 3/17
 
 b0.1.2: Added scene launch buttons. The script operates on an 8 track, by 6 scene clip matrix. 4/1
+
+b0.1.3: Added LED handling for the track select buttons 4/15
