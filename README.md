@@ -14,3 +14,5 @@ b0.1.1: Added a sesison view and navigation to give access to all tracks. Added 
 b0.1.2: Added scene launch buttons. The script operates on an 8 track, by 6 scene clip matrix. 4/1
 
 b0.1.3: Added LED handling for the track select buttons 4/15
+
+b0.1.3: Added device pararmeter mode (that was tougher than I thought!) 4/20
