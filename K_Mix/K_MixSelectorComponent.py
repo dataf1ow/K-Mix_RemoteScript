@@ -14,8 +14,9 @@ class K_MixSelectorComponent(ModeSelectorComponent, K_MixUtility):
 		self._device = K_MixDevice()
 		self._buttons_to_use = [self.button(CHANNEL, MIX_BUTTON), self.button(CHANNEL, DEVICE_BUTTON)]
 		self._buttons_to_use = tuple(self._buttons_to_use)
+		self._mode_index = 0
 		self.set_modes_buttons(self._buttons_to_use)
-
+		self.update()
 
 	def set_modes_buttons(self, buttons):
 		#raise buttons == None or isinstance(buttons, tuple) or len(buttons) == self.number_of_modes() or AssertionError
