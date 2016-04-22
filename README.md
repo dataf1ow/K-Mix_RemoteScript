@@ -15,4 +15,4 @@ b0.1.2: Added scene launch buttons. The script operates on an 8 track, by 6 scen
 
 b0.1.3: Added LED handling for the track select buttons 4/15
 
-b0.1.3: Added device pararmeter mode (that was tougher than I thought!) 4/20
+b0.1.4: Added device pararmeter mode (that was tougher than I thought!) 4/20
