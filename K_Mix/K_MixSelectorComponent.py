@@ -8,11 +8,11 @@ from MIDI import *
 class K_MixSelectorComponent(ModeSelectorComponent, K_MixUtility):
 	"""Class that selects between modes"""
 
-	def __init__(self, num_tracks):
+	def __init__(self, num_tracks, parent):
 		ModeSelectorComponent.__init__(self)
 		self._mixer = K_MixMixer(num_tracks)
-		self._device = K_MixDevice()
-		self._buttons_to_use = [self.button(CHANNEL, MIX_BUTTON), self.button(CHANNEL, DEVICE_BUTTON)]
+		self._device = K_MixDevice(parent)
+		self._buttons_to_use = [self.button(CHANNEL, VU_BUTTON), self.button(CHANNEL, FINE_BUTTON)]
 		self._buttons_to_use = tuple(self._buttons_to_use)
 		self._mode_index = 0
 		self.set_modes_buttons(self._buttons_to_use)

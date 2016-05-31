@@ -10,12 +10,12 @@ class K_MixSession(SessionComponent, K_MixUtility):
 
 	def setup(self,num_scenes):
 		self.set_scene_bank_buttons(
-			self.button(CHANNEL, SESSION_DOWN),
-			self.button(CHANNEL, SESSION_UP))
+			self.button(CHANNEL, STOP_BUTTON),
+			self.button(CHANNEL, RECORD_BUTTON))
 
 		self.set_track_bank_buttons(
-			self.button(CHANNEL, SESSION_RIGHT),
-			self.button(CHANNEL, SESSION_LEFT))
+			self.button(CHANNEL, PLAY_BUTTON),
+			self.button(CHANNEL, REWIND_BUTTON))
 
 		for scenes in range(num_scenes):
 			self.scene(scenes).set_launch_button(self.button(CHANNEL, SCENE_LAUNCH_BUTTONS[scenes]))

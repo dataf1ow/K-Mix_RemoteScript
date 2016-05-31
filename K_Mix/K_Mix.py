@@ -19,7 +19,7 @@ class K_Mix(ControlSurface):
 			self.set_highlighting_session_component(self.session)
 
 	def setup_selector(self):
-		self.selector = K_MixSelectorComponent(8)
+		self.selector = K_MixSelectorComponent(8,self)
 		self._device_component = self.selector._device
 
 	def setup_session(self):
