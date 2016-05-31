@@ -1,7 +1,7 @@
 # K-Mix_RemoteScript
 This repository will store all of the python files for the MIDI Remote Script integrating the K-Mix with Ableton Live. Please edit the 'Bugs' or 'Features' text files to report issues or request features.  
 
-This script will work (for now) with the out of the box MIDI settings for the K-Mix in MIDI bank 1. You simply need to place the K_Mix folder into your MIDI remote scripts directory. We are still waiting for LED feedback, but that should be coming soon!
+This script will work (for now) with the out of the box MIDI settings for the K-Mix in MIDI bank 1. You simply need to place the K_Mix folder into your MIDI remote scripts directory. 
 
 Feel free to reach out: evanbeta@keithmcmillen.com
 
@@ -16,3 +16,5 @@ b0.1.2: Added scene launch buttons. The script operates on an 8 track, by 6 scen
 b0.1.3: Added LED handling for the track select buttons 4/15
 
 b0.1.4: Added device pararmeter mode (that was tougher than I thought!) 4/20
+
+b0.1.5: Added device selection and pararmeter bacnking buttons. 5/31
