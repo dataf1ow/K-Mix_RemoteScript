@@ -1,5 +1,5 @@
 # K-Mix_RemoteScript
-This repository will store all of the python files for the MIDI Remote Script integrating the K-Mix with Ableton Live. Please edit the 'Bugs' or 'Features' text files to report issues or request features.  
+This repository will store all of the python files for the MIDI Remote Script integrating the K-Mix with Ableton Live. Feel free to request features, and report bugs. 
 
 This script will work (for now) with the out of the box MIDI settings for the K-Mix in MIDI bank 1. You simply need to place the K_Mix folder into your MIDI remote scripts directory. 
 
