@@ -19,4 +19,4 @@ b0.1.4: Added device pararmeter mode (that was tougher than I thought!) 4/20
 
 b0.1.5: Added device selection and pararmeter bacnking buttons. 5/31
 
-1.0!: Added VU metering mode, and fixed some bugs. 
+1.0!: Added VU metering mode, and fixed some bugs. 7/13
