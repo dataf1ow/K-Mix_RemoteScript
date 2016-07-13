@@ -11,15 +11,16 @@ def device_to_appoint(device):
 	return appointed_device
 
 
-class K_MixDevice(DeviceComponent,K_MixUtility):
+class Device_Mode(DeviceComponent,K_MixUtility):
 	def __init__(self, parent, *a, **k):
-		super(K_MixDevice, self).__init__(*a, **k)
+		super(Device_Mode, self).__init__(*a, **k)
 		self.encoders = []
 		self._device_left_button = None
 		self._device_right_button = None
 		self.selected_device = None
 		self.parent = parent
 		self.track = None
+		self._active = False
 
 		def make_button_slot(name):
 			return self.register_slot(None, getattr(self, '_%s_value' % name), 'value')
@@ -80,18 +81,35 @@ class K_MixDevice(DeviceComponent,K_MixUtility):
 		if self.selected_device != self.song().view.selected_track.view.selected_device:
 			self.selected_device = self.song().view.selected_track.view.selected_device 
 		self.set_device(self.selected_device)
+		self.set_parameter_controls(None)
+
+		for slider in range(8):
+			self.encoders[slider].send_value(0)
 		#device = DeviceComponent()
     	#self.set_device_component(device)
     	#device.set_parameter_controls(self._sliders)
 		if as_enabled:
-			self.set_parameter_controls(self.encoders)
-			self.set_device_left_button(self.button(CHANNEL, HEADPHONE_BUTTON))
-			self.set_device_right_button(self.button(CHANNEL,TRIM_BUTTON))
-			self.set_bank_nav_buttons(self.button(CHANNEL, EQ_BUTTON), self.button(CHANNEL, GATE_BUTTON))
-			self.update()
+			if self._active == False:
+				self.set_parameter_controls(None)
+				if self.song().view.selected_track.devices[0] == None:
+					for slider in range(8):
+						self.encoders[slider].send_value(0)
+				self.set_parameter_controls(self.encoders)
+				self.set_device_left_button(self.button(CHANNEL, HEADPHONE_BUTTON))
+				self.set_device_right_button(self.button(CHANNEL,TRIM_BUTTON))
+				self.set_bank_nav_buttons(self.button(CHANNEL, EQ_BUTTON), self.button(CHANNEL, GATE_BUTTON))
+				self._active = True
+				self.update()
+				for slider in range(8):
+					self.encoders[slider].send_value(0)
 		else:
-			self.set_parameter_controls(None)
-			self.set_device_left_button(None)
-			self.set_device_right_button(None)
-			self.set_bank_nav_buttons(None, None)
+			if self._active == True:
+				self.set_parameter_controls(None)
+				for slider in range(8):
+					self.encoders[slider].send_value(0)
+				self.set_device_left_button(None)
+				self.set_device_right_button(None)
+				self.set_bank_nav_buttons(None, None)
+				self._active = False
+				self.update()
 

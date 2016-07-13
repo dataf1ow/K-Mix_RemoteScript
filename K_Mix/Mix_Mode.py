@@ -3,11 +3,12 @@ from _Framework.ChannelStripComponent import ChannelStripComponent
 from K_MixUtility import K_MixUtility
 from MIDI import *
 
-class K_MixMixer(MixerComponent, K_MixUtility):
+class Mix_Mode(MixerComponent, K_MixUtility):
 	def __init__(self, num_tracks):
 		MixerComponent.__init__(self, num_tracks)
-		self._sliders = []
+		self._sliders = []                                       
 		self.sends = []
+		self._active = False
 		self.select_buttons = []
 		self._rotaries = []
 		self._master_fader = self.encoder(CHANNEL,MASTER_SLIDER)
@@ -45,24 +46,38 @@ class K_MixMixer(MixerComponent, K_MixUtility):
 			self.sends.append(self._rotaries[index + 1])
 
 		if as_enabled:
-			for track in range(num_tracks):
-				strip = self.channel_strip(track)
-				strip.set_volume_control(self._sliders[track])
-				strip.set_select_button(self.select_buttons[track])
-			self.selected_strip().set_send_controls(tuple(self.sends))
-			self.selected_strip().set_pan_control(self._rotaries[0])
-			self.master_strip().set_volume_control(self._master_fader)
-			self.master_strip().set_select_button(self._master_select)
-			self.update()
+			if self._active == False:
+				#active
+				for track in range(num_tracks):
+					self._sliders[track].send_value(0)
+				for track in range(num_tracks):
+					strip = self.channel_strip(track)
+					strip.set_volume_control(self._sliders[track])
+					strip.set_select_button(self.select_buttons[track])
+				self.selected_strip().set_send_controls(tuple(self.sends))
+				self.selected_strip().set_pan_control(self._rotaries[0])
+				self.master_strip().set_volume_control(self._master_fader)
+				self.master_strip().set_select_button(self._master_select)
+				self._active = True
+				self.update()
 		else: 
-			for track in range(num_tracks):
-				strip = self.channel_strip(track)
-				strip.set_select_button(self.select_buttons[track])
-			self.selected_strip().set_send_controls(tuple(self.sends))
-			self.selected_strip().set_pan_control(self._rotaries[0])
-			self.master_strip().set_volume_control(self._master_fader)
-			self.master_strip().set_select_button(self._master_select)	
-			self.update()
+			if self._active == True:
+				#self.flush_LEDs(num_tracks)
+				#not active
+				for track in range(num_tracks):
+					strip = self.channel_strip(track)
+					strip.set_volume_control(None)
+					strip.set_select_button(None)
+				self.selected_strip().set_send_controls(None)
+				self.selected_strip().set_pan_control(None)
+				self.master_strip().set_volume_control(None)
+				self.master_strip().set_select_button(self._master_select)	
+				self._active = False
+				self.update()
+
+	def flush_LEDs(self, num_tracks):
+		for track in range(num_tracks):
+			self._sliders[track].send_value(0)
 
 class K_MixChannelStrip(ChannelStripComponent):
 	def __init__(self, *a, **k):
