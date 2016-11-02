@@ -91,9 +91,8 @@ class Device_Mode(DeviceComponent,K_MixUtility):
 		if as_enabled:
 			if self._active == False:
 				self.set_parameter_controls(None)
-				if self.song().view.selected_track.devices[0] == None:
-					for slider in range(8):
-						self.encoders[slider].send_value(0)
+				for slider in range(8):
+					self.encoders[slider].send_value(0)
 				self.set_parameter_controls(self.encoders)
 				self.set_device_left_button(self.button(CHANNEL, HEADPHONE_BUTTON))
 				self.set_device_right_button(self.button(CHANNEL,TRIM_BUTTON))

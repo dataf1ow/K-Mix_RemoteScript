@@ -26,5 +26,5 @@ class K_Mix(ControlSurface):
 		self.session = K_MixSession(8, 6)
 		self.session.set_offsets(0,0)
 		self.session.set_mixer(self.selector._mixer)
-		self.session.set_mixer(self.selector._meters)
+		#self.session.set_mixer(self.selector._meters)
 		self.session.update()
