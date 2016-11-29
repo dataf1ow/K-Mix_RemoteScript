@@ -1,7 +1,9 @@
 # K-Mix_RemoteScript
 This repository will store all of the python files for the MIDI Remote Script integrating the K-Mix with Ableton Live. Feel free to request features, and report bugs. 
 
-This script will work (for now) with the out of the box MIDI settings for the K-Mix in MIDI bank 1. You simply need to place the K_Mix folder into your MIDI remote scripts directory. 
+As of version 1.1, I rebuilt most of the script. I will be leaving ver 1.0 up, but will not be updating that folder going forward. 
+
+This script will work (for now) with the out of the box MIDI settings for the K-Mix in MIDI bank 1. You simply need to place the K_Mix_ver_X_X folder into your MIDI remote scripts directory. 
 
 Feel free to reach out: evanbeta@keithmcmillen.com
 
@@ -20,3 +22,5 @@ b0.1.4: Added device pararmeter mode (that was tougher than I thought!) 4/20
 b0.1.5: Added device selection and pararmeter bacnking buttons. 5/31
 
 1.0!: Added VU metering mode, and fixed some bugs. 7/13
+
+1.1: Rebuilt most of the script to allow for more flexibility down the road. Added Return tracks to mixer/VUMode. Rebuilt the documentation. 
