@@ -60,6 +60,11 @@ class Mix_Mode(MixerComponent,K_MixUtility):
 					strip.set_volume_control(None)
 				if strip._VU_control != None: 
 					strip.set_VU_control(None)
+				if return_strip._volume_control != None:
+					return_strip.set_volume_control(None)
+				if return_strip._VU_control != None: 
+					return_strip.set_VU_control(None)
+
 
 
 	def setup_tracks(self):

@@ -87,7 +87,6 @@ class Device_Mode(DeviceComponent,K_MixUtility):
 	def on_selected_track_changed(self):
 		track =  self.song().view.selected_track
 		device_count = track.devices
-		self.log_message(len(device_count))
 		if len(device_count) != 0:
 			if self.selected_device != self.song().view.selected_track.devices[0]: 
 				self.song().view.select_device(self.song().view.selected_track.devices[0])
