@@ -24,3 +24,7 @@ b0.1.5: Added device selection and pararmeter bacnking buttons. 5/31
 1.0!: Added VU metering mode, and fixed some bugs. 7/13
 
 1.1: Rebuilt most of the script to allow for more flexibility down the road. Added Return tracks to mixer/VUMode. Rebuilt the documentation. 
+
+1.2: Missing info
+
+1.3: Updated to Python 3 using 2to3 and tested with Live 11
